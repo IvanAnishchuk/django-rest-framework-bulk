@@ -182,3 +182,19 @@ please refer to Django REST
 `docs <http://www.django-rest-framework.org/api-guide/filtering>`_.
 Either way, please use bulk deletes with extreme caution since they
 can be dangerous.
+
+Schemas and interactive documentation
+-------------------------------------
+
+You can use BulkSchemaGenerator for your interactive docs needs::
+
+    from rest_framework.documentation import include_docs_urls
+    from rest_framework_bulk.schemas import SchemaGenerator
+
+    urlpatterns = [
+        ...
+        url(r'^docs/', include_docs_urls(title='My API title', generator_class=SchemaGenerator))
+    ]
+
+This will include bulk actions in docs for appropriate viewsets.
+Refer to DRF docs for other details on interactive documentation and schemas.
